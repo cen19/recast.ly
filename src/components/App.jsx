@@ -25,7 +25,6 @@ class App extends React.Component {
   }
   
   handleClick(video) {
-    console.log(video);
     this.setState({
       currentVideo: video,
       videos: this.state.videos
