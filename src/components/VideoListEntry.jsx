@@ -9,10 +9,10 @@ class VideoListEntry extends React.Component {
     return (
       <div className="video-list-entry">
         <div className="media-left media-middle"></div>
-          <img className="media-object" src="" alt="" />
+          <img className="media-object" src={this.props.video.snippet.thumbnails.default.url} alt="" />
         <div className="media-body">
-          <div className="video-list-entry-title">Video Title</div>
-          <div className="video-list-entry-detail">Video Description</div>
+          <div className="video-list-entry-title">{this.props.video.snippet.title}</div>
+          <div className="video-list-entry-detail">{this.props.video.snippet.description}</div>
         </div>
       </div>
     );
