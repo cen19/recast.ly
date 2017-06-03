@@ -16,17 +16,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: null
+      currentVideo: exampleVideoData[0],
+      videos: exampleVideoData
     };
     // this.state = { exampleVideoData[0] };
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
     
   }
   
-  handleClick() {
-    console.log(VideoPlayer.video);
+  handleClick(video) {
+    console.log(video);
     this.setState({
-      video: 'something'
+      currentVideo: video,
+      videos: this.state.videos
     });
   }
 
@@ -36,10 +38,10 @@ class App extends React.Component {
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer video={exampleVideoData[0]}/>
+          <VideoPlayer video={this.state.currentVideo}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={exampleVideoData} onClick={this.handleClick}/>
+          <VideoList videos={this.state.videos} videoClick={this.handleClick.bind(this)}/>
         </div>
       </div>
     
